@@ -1,0 +1,9 @@
+server:
+  port: ${SERVER_PORT_NOTIFICATION_ADAPTER}
+gmail-configuration:
+  host: ${MAIL_HOST}
+  port: ${MAIL_PORT}
+  username: ${MAIL_USERNAME}
+  password: ${MAIL_PASSWORD}
+  from: ${MAIL_FROM}
+  to: ${MAIL_TO}

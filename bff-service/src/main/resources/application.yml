@@ -1,0 +1,28 @@
+server:
+  port: ${SERVER_PORT_BFF}
+
+springdoc:
+  server-external-base-url: ${SERVER_HOST}
+  server-external-port: ${SERVER_PORT_SWAGGER}
+  api-docs:
+    path: /api-docs
+    enabled: false
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: false
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
+
+client:
+  url:
+    auth: ${SERVER_HOST}:${SERVER_PORT_USER}/api/v1/auth
+    user: ${SERVER_HOST}:${SERVER_PORT_USER}/api/v1/users
+    wallet: ${SERVER_HOST}:${SERVER_PORT_WALLET}/api/v1/wallets
+    item: ${SERVER_HOST}:${SERVER_PORT_ITEM}/api/v1/items
+    transfer: ${SERVER_HOST}:${SERVER_PORT_TRANSFER}/api/v1/transfers
+    purchase: ${SERVER_HOST}:${SERVER_PORT_TRANSFER}/api/v1/purchase

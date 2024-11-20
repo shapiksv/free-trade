@@ -1,0 +1,44 @@
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers:
+        - localhost:9092
+      group-id: notification_id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers:
+        - localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?currentSchema=${POSTGRES_SCHEMA_NOTIFICATION}&serverTimezone=UTC&assumeMinServerVersion=9.0&ApplicationName=MediaAdsService&preferQueryMode=extendedForPrepared
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    jdbc-interceptors: com.amazonaws.xray.sql.postgres.TracingInterceptor
+    hikari:
+      maximum-pool-size: 10000
+      minimum-idle: 5
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+topic:
+  user: ${USER_TOPIC}
+  notification: ${NOTIFICATION_TOPIC}
+
+message:
+  subject_message:
+    SEND_OTP: "New Sign-in OTP"
+    REGISTERED_USER: "Congratulations on your successful registration."
+    PURCHASE_SUCCESSFUL: "Congratulations, you have made a purchase."
+    PURCHASE_FAILED: "The purchase of the product was unsuccessful"
+  text_message:
+    SEND_OTP: "You have been sent a one-time password CODE to register, enter it."
+    REGISTERED_USER: "Dear FIRST_NAME SECOND_NAME congratulations on your successful registration now you have access to all the functionality of our application"
+    PURCHASE_SUCCESSFUL: "Congratulations, your purchase was successful. You can check the availability of the product in your personal account."
+    PURCHASE_FAILED: "Purchase of the product was failed please check your balance or availability of the selected product"
+notification_adapter:
+  name: "NotificationAdapter"
+  url: ${NOTIFICATION_ADAPTER_URL}

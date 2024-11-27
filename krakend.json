@@ -1,0 +1,231 @@
+{
+  "version": 3,
+  "name": "Example Gateway",
+  "port": 9191,
+  "echo_endpoint": true,
+  "output_encoding": "no-op",
+  "timeout": "2000ms",
+  "endpoints": [
+    {
+      "endpoint": "/api/v1/users",
+      "method": "GET",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/users"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/auth/request-otp",
+      "method": "POST",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/auth/request-otp"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/auth/sign-up",
+      "method": "POST",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/auth/sign-up"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/auth/sign-in",
+      "method": "POST",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/auth/sign-in"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/items",
+      "method": "POST",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/items"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/items/{itemId}",
+      "method": "PUT",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/items/{itemId}"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/items/{itemId}",
+      "method": "DELETE",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/items/{itemId}"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/items",
+      "method": "GET",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/items"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/items/available",
+      "method": "GET",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/items/available"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/purchase",
+      "method": "POST",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/purchase"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/transfers",
+      "method": "GET",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/transfers"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/transfers/{id}",
+      "method": "GET",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/transfers/{id}"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/v1/wallets",
+      "method": "GET",
+      "timeout": "120s",
+      "input_headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "backend": [
+        {
+          "host": [
+            "http://host.docker.internal:8081"
+          ],
+          "url_pattern": "/api/v1/wallets"
+        }
+      ]
+    }
+  ]
+}

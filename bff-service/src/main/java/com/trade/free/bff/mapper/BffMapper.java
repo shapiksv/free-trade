@@ -23,7 +23,7 @@ public interface BffMapper {
     UserExternalRespDto toExternal(UserRespDto user, WalletRespDto wallet, List<ItemRespDto> items);
 
     @Named("getNumberOfItem")
-     default Integer getNumberOfItem(List<ItemRespDto> items) {
+    default Integer getNumberOfItem(List<ItemRespDto> items) {
         return items == null ? 0 : items.size();
     }
 }

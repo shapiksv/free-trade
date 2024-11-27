@@ -36,8 +36,8 @@ public class NotificationServiceImpl implements NotificationService {
         var subject = messageParams.getSubjectMessage().get(event.getType());
         var text = messageParams.getTextMessage().get(event.getType());
         var message = repository.save(Message.create(contact,
-                                                     setValue(subject, event),
-                                                     setValue(text, event)));
+                setValue(subject, event),
+                setValue(text, event)));
         client.send(mapper.mapToDto(message));
     }
 

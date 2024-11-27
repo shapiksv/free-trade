@@ -60,7 +60,7 @@ public class KafkaConsumer {
     public void listenUserTopic(String message) {
         log.info("Event: [{}]", message);
         var event = mapper.readValue(message, EventUserDto.class);
-        if(CREATE.equals(event.getType())) {
+        if (CREATE.equals(event.getType())) {
             service.create(event.getUserId());
         }
     }

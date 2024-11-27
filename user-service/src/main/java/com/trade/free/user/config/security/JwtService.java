@@ -23,7 +23,6 @@ import static com.trade.free.dto.permission.Permission.*;
 public class JwtService {
 
 
-
     private final String jwtSigningKey;
 
 

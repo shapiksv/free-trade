@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 public class WrongStatusException extends TradeFreeMainException {
 
     private final static String MESSAGE = "item has wrong status for action";
+
     public WrongStatusException() {
         super(MESSAGE, HttpStatus.BAD_REQUEST.value());
     }

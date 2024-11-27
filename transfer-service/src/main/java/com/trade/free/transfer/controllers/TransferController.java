@@ -27,7 +27,7 @@ public class TransferController {
     private final BaseContext context;
 
     @Secured(TRANSFER)
-    @GetMapping(path = "/{id}",produces = APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<TransferRespDto> getById(@PathVariable Integer id) {
         return ResponseEntity.ok().body(mapper.mapToRespDto(service.getById(id)));
     }

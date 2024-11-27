@@ -33,7 +33,7 @@ public class ConfirmationServiceImpl implements ConfirmationService {
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
 
-    public ConfirmationServiceImpl(@Value("${topic.notification}")String topic,
+    public ConfirmationServiceImpl(@Value("${topic.notification}") String topic,
                                    ConfirmationCodeRepository repository,
                                    KafkaTemplate<String, String> kafkaTemplate,
                                    ObjectMapper objectMapper) {

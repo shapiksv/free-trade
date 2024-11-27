@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @SneakyThrows
-    private void sendEvent(User user,  EventUserType type, EventNotificationType notificationType) {
+    private void sendEvent(User user, EventUserType type, EventNotificationType notificationType) {
         kafkaTemplate.send(userTopic, objectMapper.writeValueAsString(userMapper.toUserEvent(user, type)));
         if (notificationType != null) {
             kafkaTemplate.send(notificationTopic,

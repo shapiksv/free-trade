@@ -1,7 +1,10 @@
 package com.trade.free.transfer.dto;
 
 import com.trade.free.transfer.enums.TransferStatus;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.OffsetDateTime;
 

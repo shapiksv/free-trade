@@ -25,6 +25,7 @@ public class PurchaseControllerImpl implements PurchaseController {
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<TransferRespDto> execute(@RequestHeader(name = AUTHORIZATION) String token,
                                                    @RequestBody PurchaseRequestDto requestDto) {
-        return purchaseClient.execute(token, requestDto);
+        var resp = purchaseClient.execute(token, requestDto);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 }

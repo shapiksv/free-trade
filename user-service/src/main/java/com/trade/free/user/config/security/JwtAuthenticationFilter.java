@@ -28,7 +28,7 @@ import static com.trade.free.user.env.BaseContext.*;
 
 @Component
 @RequiredArgsConstructor
-public class JwtAuthenticationFilter extends OncePerRequestFilter  {
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
     public static final String BEARER_PREFIX = "Bearer ";
     public static final String HEADER_NAME = "Authorization";
     private final JwtService jwtService;
@@ -78,7 +78,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter  {
 
         baseContext.addProperty(USER_ID_KEY, jwtService.extractUserId(jwt));
         baseContext.addProperty(JWT_TOKEN_KEY, jwt);
-        baseContext.addProperty(USERNAME_KEY,  jwtService.extractUserName(jwt));
+        baseContext.addProperty(USERNAME_KEY, jwtService.extractUserName(jwt));
 
         return authorities.map(SimpleGrantedAuthority::new).collect(Collectors.toSet());
     }

@@ -20,6 +20,7 @@ public class UserControllerImpl implements UserController {
     @Override
     @GetMapping
     public ResponseEntity<UserExternalRespDto> get(@RequestHeader(name = AUTHORIZATION) String token) {
-        return ResponseEntity.ok().body(service.getUser(token));
+        var resp = ResponseEntity.ok().body(service.getUser(token));
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 }

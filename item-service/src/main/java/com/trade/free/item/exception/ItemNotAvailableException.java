@@ -7,7 +7,8 @@ import org.springframework.http.HttpStatus;
 public class ItemNotAvailableException extends TradeFreeMainException {
 
     private final static String MESSAGE = "item with id: [%s] has the status of [%s] but must have [%s]";
-    public ItemNotAvailableException(Integer id,  ItemStatus currentStatus, ItemStatus expectStatus) {
+
+    public ItemNotAvailableException(Integer id, ItemStatus currentStatus, ItemStatus expectStatus) {
         super(String.format(MESSAGE, id, currentStatus, expectStatus), HttpStatus.BAD_REQUEST.value());
     }
 }

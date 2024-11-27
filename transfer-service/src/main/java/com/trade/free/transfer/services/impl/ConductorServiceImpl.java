@@ -45,14 +45,14 @@ public class ConductorServiceImpl implements ConductorService {
     public TransferDto purchaseOfItem(Integer userId, Integer itemId) {
 
         var transfer = transferService.create(CreateTransferDto.builder()
-                                                               .initiateUserId(userId)
-                                                               .itemId(itemId)
-                                                               .build());
+                .initiateUserId(userId)
+                .itemId(itemId)
+                .build());
         var event = EventConductorDto.builder()
-                                     .itemId(itemId)
-                                     .senderUserId(userId)
-                                     .transferId(transfer.getId())
-                                     .build();
+                .itemId(itemId)
+                .senderUserId(userId)
+                .transferId(transfer.getId())
+                .build();
 
         sendConductorEvent(event, EventConductorType.HOLD_ITEM_REQUEST);
         return transfer;
@@ -80,9 +80,9 @@ public class ConductorServiceImpl implements ConductorService {
 
     private void transferAmount(EventConductorDto event) {
         transferService.update(event.getTransferId(), UpdateTransferDto.builder()
-                        .amount(event.getAmount())
-                        .receiverUserId(event.getReceiverUserId())
-                        .status(TransferStatus.ITEM_HOLD_SUCCESSFULLY)
+                .amount(event.getAmount())
+                .receiverUserId(event.getReceiverUserId())
+                .status(TransferStatus.ITEM_HOLD_SUCCESSFULLY)
                 .build());
         sendConductorEvent(event, EventConductorType.TRANSFER_AMOUNT_REQUEST);
     }

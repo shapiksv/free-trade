@@ -24,19 +24,20 @@ public class AuthControllerImpl implements AuthController {
     @Override
     @PostMapping("/request-otp")
     public ResponseEntity<Void> requestOtp(@RequestBody OtpReqDto req) {
-
         return userClient.requestOtp(req);
     }
 
     @Override
     @PostMapping("/sign-up")
     public ResponseEntity<JwtAuthenticationRespDto> signUp(@RequestBody @Valid SignUpReqDto request) {
-        return userClient.signUp(request);
+        var resp = userClient.signUp(request);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 
     @Override
     @PostMapping("/sign-in")
     public ResponseEntity<JwtAuthenticationRespDto> signIn(@RequestBody @Valid SignInReqDto request) {
-        return userClient.signIn(request);
+        var resp = userClient.signIn(request);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 }

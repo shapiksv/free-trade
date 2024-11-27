@@ -26,13 +26,16 @@ public class TransferControllerImpl implements TransferController {
     @Override
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TransferRespDto>> getAll(@RequestHeader(name = AUTHORIZATION) String token) {
-        return transferClient.getAll(token);
+        var resp = transferClient.getAll(token);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
+
     @Override
-    @GetMapping(path = "/{id}",produces = APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<TransferRespDto> getById(@RequestHeader(name = AUTHORIZATION) String token,
                                                    @PathVariable Integer id) {
-        return transferClient.getById(token, id);
+        var resp = transferClient.getById(token, id);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 
 }

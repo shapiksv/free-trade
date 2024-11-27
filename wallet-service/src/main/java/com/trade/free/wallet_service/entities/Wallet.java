@@ -16,7 +16,7 @@ public class Wallet {
     @Column(columnDefinition = "serial")
     private Integer id;
 
-    @Column(name = "user_id", nullable = false,  unique = true)
+    @Column(name = "user_id", nullable = false, unique = true)
     private Integer userId;
 
     @Column(name = "serial", nullable = false, unique = true)

@@ -26,7 +26,7 @@ public class ItemControllerImpl implements ItemController {
     public ResponseEntity<ItemRespDto> create(@RequestHeader(name = AUTHORIZATION) String token,
                                               @RequestBody ItemCreateReqDto createReqDto) {
 
-        return itemClient.create(token,  createReqDto);
+        return itemClient.create(token, createReqDto);
     }
 
     @Override
@@ -34,26 +34,29 @@ public class ItemControllerImpl implements ItemController {
     public ResponseEntity<ItemRespDto> update(@RequestHeader(name = AUTHORIZATION) String token,
                                               @PathVariable("itemId") Integer itemId,
                                               @RequestBody ItemUpdateReqDto updateReqDto) {
-
-        return itemClient.update(token, itemId, updateReqDto);
+        var resp = itemClient.update(token, itemId, updateReqDto);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 
     @Override
     @DeleteMapping(value = "/{itemId}")
     public ResponseEntity<Void> delete(@RequestHeader(name = AUTHORIZATION) String token,
                                        @PathVariable("itemId") Integer itemId) {
-        return itemClient.delete(token, itemId);
+        var resp = itemClient.delete(token, itemId);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 
     @Override
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ItemRespDto>> getAll(@RequestHeader(name = AUTHORIZATION) String token) {
-        return itemClient.getAll(token);
+        var resp = itemClient.getAll(token);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 
     @Override
     @GetMapping(value = "/available", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ItemRespDto>> getAvailable(@RequestHeader(name = AUTHORIZATION) String token) {
-        return itemClient.getAvailable(token);
+        var resp = itemClient.getAvailable(token);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 }

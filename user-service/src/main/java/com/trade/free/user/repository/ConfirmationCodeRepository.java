@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ConfirmationCodeRepository  extends JpaRepository<ConfirmationCode, Integer> {
+public interface ConfirmationCodeRepository extends JpaRepository<ConfirmationCode, Integer> {
 
     Optional<ConfirmationCode> findByStatusAndEmail(ConfirmationStatus status, String email);
 }

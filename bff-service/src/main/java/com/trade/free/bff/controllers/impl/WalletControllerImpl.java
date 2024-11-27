@@ -23,6 +23,7 @@ public class WalletControllerImpl implements WalletController {
     @Override
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<WalletRespDto> get(@RequestHeader(name = AUTHORIZATION) String token) {
-        return walletClient.get(token);
+        var resp = walletClient.get(token);
+        return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
     }
 }

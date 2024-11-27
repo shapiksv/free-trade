@@ -1,7 +1,8 @@
 package com.trade.free.dto.event;
 
 import com.trade.free.dto.enums.EventConductorType;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.math.BigDecimal;
 

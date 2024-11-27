@@ -17,7 +17,7 @@ public interface TransferClient {
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TransferRespDto>> getAll(@RequestHeader(value = "Authorization") String authorizationHeader);
 
-    @GetMapping(path = "/{id}",produces = APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<TransferRespDto> getById(@RequestHeader(value = "Authorization") String authorizationHeader,
                                                    @PathVariable Integer id);
 }

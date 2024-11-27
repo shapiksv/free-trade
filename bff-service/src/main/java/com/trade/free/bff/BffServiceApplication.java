@@ -8,8 +8,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 public class BffServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BffServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BffServiceApplication.class, args);
+    }
 
 }

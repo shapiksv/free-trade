@@ -48,7 +48,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void delete(Integer ownerId, Integer itemId) {
-       repository.findByOwnerIdAndId(ownerId, itemId).ifPresent(item -> repository.save(item.marcAsDelete()));
+        repository.findByOwnerIdAndId(ownerId, itemId).ifPresent(item -> repository.save(item.marcAsDelete()));
     }
 
     @Override
@@ -66,8 +66,8 @@ public class ItemServiceImpl implements ItemService {
         var item = repository.findById(itemId)
                 .orElseThrow(() -> new ItemNotFoundException(itemId));
 
-       validate(item, customerOwnerId, AVAILABLE);
-       return itemMapper.mapToDto(repository.save(item.marcAsHold()));
+        validate(item, customerOwnerId, AVAILABLE);
+        return itemMapper.mapToDto(repository.save(item.marcAsHold()));
     }
 
     @Override

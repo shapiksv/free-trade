@@ -4,7 +4,7 @@ import com.trade.free.item.enums.ItemStatus;
 import lombok.Data;
 
 @Data
-public class ItemDto extends ItemCreateDto{
+public class ItemDto extends ItemCreateDto {
 
     private Integer id;
     private ItemStatus status;

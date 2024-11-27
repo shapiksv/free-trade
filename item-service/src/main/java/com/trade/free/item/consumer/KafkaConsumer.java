@@ -38,15 +38,15 @@ public class KafkaConsumer {
     @KafkaListener(topics = "${topic.conductor}", groupId = "${spring.kafka.consumer.group-id}")
     public void listen(String message) {
         log.info("Event: [{}]", message);
-        
+
         process(mapper.readValue(message, EventConductorDto.class));
     }
 
     private void process(EventConductorDto event) {
-        
+
         switch (event.getType()) {
             case HOLD_ITEM_REQUEST -> holdItem(event);
-            case UN_HOLD_ITEM_REQUEST-> unHoldItem(event);
+            case UN_HOLD_ITEM_REQUEST -> unHoldItem(event);
             case SELL_ITEM_REQUEST -> sellItem(event);
         }
     }
